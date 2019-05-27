@@ -7,8 +7,6 @@ import java.util.Set;
 public class LongestSubstring {
 
 	public int lengthOfLongestSubstring(String s) {
-		int result = 0;
-
 		// Bad Solution Start
 		// List<Character> charList;
 		// List<Character> charListTemp = new ArrayList<Character>();
@@ -32,33 +30,23 @@ public class LongestSubstring {
 		// System.out.println(charListTemp.toString());
 		// Bad Solution End
 
-		int n = s.length();
-
-		for (int i = 0; i < n; i++) {
-			for (int j = i + 1; j <= n; j++) {
-				if (isUnique(s, i, j)) {
-					result = Math.max(result, j - i);
-				}
-			}
-		}
-
-		return result;
+        int n = s.length();
+        Set<Character> set = new HashSet<>();
+        int ans = 0, i = 0, j = 0;
+        while (i < n && j < n) {
+            // try to extend the range [i, j]
+            if (!set.contains(s.charAt(j))){
+                set.add(s.charAt(j++));
+                ans = Math.max(ans, j - i);
+            }
+            else {
+                set.remove(s.charAt(i++));
+            }
+        }
+        return ans;
 	}
 
-	private boolean isUnique(String s, int start, int end) {
 
-		Set<Character> set = new HashSet<Character>();
-
-		for (int i = start; i < end; i++) {
-			Character c = s.charAt(i);
-			if (set.contains(c)) {
-				return false;				
-			}
-			set.add(c);
-		}
-
-		return true;
-	}
 
 	public static void main(String args[]) {
 		System.out.println("Please input a String: ");
