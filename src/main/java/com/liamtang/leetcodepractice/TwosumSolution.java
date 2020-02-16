@@ -29,7 +29,7 @@ public class TwosumSolution {
 		// End of Solution 1
 
 		// // Solution 2
-		Map<Integer, Integer> map = new HashMap();
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 		for (int idx = 0; idx < nums.length; idx++) {
 			int complement = target - nums[idx];
 			if (map.containsKey(complement)) {
