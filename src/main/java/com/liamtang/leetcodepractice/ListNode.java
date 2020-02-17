@@ -14,7 +14,7 @@ public class ListNode {
 
 	void printList() {
 		ListNode head = this;
-		List<Integer> list = new ArrayList();
+		List<Integer> list = new ArrayList<Integer>();
 		while (null != head) {
 			list.add(head.val);
 			// System.out.println(head.val + " ");
