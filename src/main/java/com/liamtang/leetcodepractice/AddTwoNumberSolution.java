@@ -1,5 +1,7 @@
 package com.liamtang.leetcodepractice;
 
+import com.liamtang.leetcodepractice.ListNode;
+
 public class AddTwoNumberSolution {
 
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
