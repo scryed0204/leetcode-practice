@@ -19,6 +19,10 @@ public class AddTwoNumbersTest {
 
 		ListNode result = new AddTwoNumberSolution().addTwoNumbers(head1, head2);
 		result.printList();
+		result = new AddTwoNumber_2().addTwoNumbers(head1, head2);
+		result.printList();
+		
+		System.out.println("----------------------------------------");
 		
 		head1 = new ListNode(0);
 		head1.next = new ListNode(1);
@@ -31,6 +35,8 @@ public class AddTwoNumbersTest {
 		head2.printList();
 
 		result = new AddTwoNumberSolution().addTwoNumbers(head1, head2);
+		result.printList();
+		result = new AddTwoNumber_2().addTwoNumbers(head1, head2);
 		result.printList();
 	}
 
