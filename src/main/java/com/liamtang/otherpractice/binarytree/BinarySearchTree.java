@@ -1,6 +1,8 @@
 package com.liamtang.otherpractice.binarytree;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Random;
 
@@ -18,10 +20,15 @@ public class BinarySearchTree {
 		}
 
 		else if (value > current.value) {
-			current.right = addRecursive(current.right, value);
+			current.right = addRecursive(current.right, value);		
+		} 
+		
+		else if (value == current.value) {
+			return current;			
 		}
-
+		
 		return current;
+
 	}
 
 	public void add(int value) {
@@ -115,12 +122,69 @@ public class BinarySearchTree {
 		root = deleteRecursive(root, value);
 	}
 	
+	private String traverseInOrderUtil(Node node, List<String> result) {
+		if (node != null) {
+			traverseInOrderUtil(node.left, result);
+//			System.out.println(" " + node.value);
+			result.add(node.value + "");
+			traverseInOrderUtil(node.right, result);
+			return Arrays.toString(result.toArray());
+		}
+		
+		return "";
+	}
+	
+	/*
+	 * Left - Root - Right
+	 */
+	public String traverseInOrder() {
+		return traverseInOrderUtil(root, new LinkedList<String>());
+	}
+	
+	private String traversePreOrderUtil(Node node, List<String> result) {
+		if (node != null) {
+			result.add(node.value + "");
+			traversePreOrderUtil(node.left, result);
+			traversePreOrderUtil(node.right, result);
+			return Arrays.toString(result.toArray());
+		}
+		
+		return "";
+		
+	}
+	
+	/*
+	 * Root - Left - Right
+	 */
+	public String traversePreOrder() {
+		return traversePreOrderUtil(root, new LinkedList<String>());
+	}
+	
+	private String traverserPostOrderUtil(Node node, List<String> result) {
+		if (node != null) {
+			traverserPostOrderUtil(node.left, result);
+			traverserPostOrderUtil(node.right, result);
+			result.add(node.value + "");
+			return Arrays.toString(result.toArray());
+		}
+		
+		return "";
+		
+	}
+	
+	/*
+	 * Left - Right - Root
+	 */
+	public String traverserPostOrder() {
+		return traverserPostOrderUtil(root, new LinkedList<String>());
+	}
+	
 	public String treverseLevelOrder() {
 		if (root == null) {
 			return "";
 		}
 		
-		StringBuilder result = new StringBuilder();
+		List<String> result = new LinkedList<String>();
 		
 		Queue<Node> nodes = new LinkedList<>();
 		nodes.add(root);
@@ -130,7 +194,7 @@ public class BinarySearchTree {
 		while(!nodes.isEmpty()) {
 			node = nodes.remove();
 			
-			result.append(" " + node.value);
+			result.add(node.value + "");
 			
 			if (node.left != null) {
 				nodes.add(node.left);
@@ -141,7 +205,7 @@ public class BinarySearchTree {
 			}
 		}
 		
-		return result.toString();
+		return Arrays.toString(result.toArray());
 		
 	}
 
