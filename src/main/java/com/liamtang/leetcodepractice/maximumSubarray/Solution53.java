@@ -16,4 +16,10 @@ public class Solution53 {
         
         return maxResult;
     }
+    
+    public static void main(String args[]) {
+    	Solution53 s = new Solution53();
+    	int[] nums = {-1, -2, -3, -4};
+    	System.out.println(s.maxSubArray(nums));
+    }
 }
