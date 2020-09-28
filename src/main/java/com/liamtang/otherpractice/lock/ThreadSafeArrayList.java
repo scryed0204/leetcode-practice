@@ -14,7 +14,7 @@ public class ThreadSafeArrayList<E> {
 	private static int i = 0;
 	
 	public void set(E o) {
-//		lock.lock();
+		lock.lock();
 		
 		try {
 			i++;
