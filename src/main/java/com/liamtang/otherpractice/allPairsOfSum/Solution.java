@@ -16,8 +16,8 @@ public class Solution {
 		for(int num : nums) {
 			pairNum = target - num;
 			if (waitingForPairList.contains(pairNum)) {
-				idx = waitingForPairList.lastIndexOf(pairNum);
-				waitingForPairList.remove(idx);
+//				idx = waitingForPairList.lastIndexOf(pairNum);
+				waitingForPairList.removeLastOccurrence(pairNum);
 				result.add(new int[] {num, pairNum});
 			} else {
 				waitingForPairList.add(num);

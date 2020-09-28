@@ -2,16 +2,23 @@ package com.liamtang.leetcodepractice.invertBinaryTree;
 
 public class Solution226 {
     public TreeNode invertTree(TreeNode root) {
-		if (root == null) {
-			return null;
+		if (root != null) {
+			invertTree(root.left);
+			invertTree(root.right);
+			
+			TreeNode temp = root.right;
+			root.right = root.left;
+			root.left = temp;
 		}
-
-		TreeNode newNode = new TreeNode(root.val);
 		
-		newNode.left = invertTree(root.right);
-		newNode.right = invertTree(root.left);
+		return root;
 
-		return newNode;    
+//		TreeNode newNode = new TreeNode(root.val);
+//		
+//		newNode.left = invertTree(root.right);
+//		newNode.right = invertTree(root.left);
+//
+//		return newNode;    
     }
     
     public static void main(String args[]) {

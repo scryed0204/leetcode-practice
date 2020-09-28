@@ -3,7 +3,7 @@ package com.liamtang.otherpractice.quickSorting;
 import java.util.Arrays;
 import java.util.Random;
 
-public class QuickSorting {
+public class QuickSortingHaore {
 
 	public int[] sort(int[] nums) {
 		quickSort(nums, 0, nums.length - 1);
@@ -17,32 +17,34 @@ public class QuickSorting {
 		}
 		int pivotIdx = partition(nums, front, end);
 		System.out.println("partition result index=" + pivotIdx);
-		quickSort(nums, front, pivotIdx - 1);
+		quickSort(nums, front, pivotIdx);
 		quickSort(nums, pivotIdx + 1, end);
 	}
 
 	private int partition(int[] nums, int front, int end) {
-		System.out.println("Partitioning:" + Arrays.toString(nums) + ", Front:" + front + ", End:" + end);
-//		Random rand = new Random();
-//		int pivot_idx = front + rand.nextInt(end - front);
-		int pivot_idx = end;
-		int pivot = nums[pivot_idx]; 
-		System.out.println("pivot_idx=" + pivot_idx + ", pivot=" + pivot);
+		int pivot = nums[front];
 		int i = front - 1;
+		int j = end + 1;
 
-		for (int j = front; j < end; j++) {
-			if (nums[j] < pivot) {
+		while (true) {
+	        // Find leftmost element greater 
+	        // than or equal to pivot 
+			do {
 				i++;
-				swap(nums, i, j);
+			} while (nums[i] < pivot);
+			
+	        // Find rightmost element smaller 
+	        // than or equal to pivot			
+			do {
+				j--;
+			} while (nums[j] > pivot);
+			
+			if (i >= j) {
+				return j;
 			}
+			
+			swap(nums, i, j);
 		}
-
-		System.out.println("-----------------------------");
-		i++;
-		swap(nums, i, pivot_idx);
-		System.out.println("-----------------------------");
-		
-		return i;
 	}
 
 	private void swap(int[] nums, int i, int j) {
@@ -53,8 +55,8 @@ public class QuickSorting {
 	}
 
 	public static void main(String args[]) {
-		int[] nums = new int[] { 5, 3, 2, 1, 4 };
-		QuickSorting qs = new QuickSorting();
+		int[] nums = new int[] { 4, 5, 3, 2, 1, 4, 4 };
+		QuickSortingHaore qs = new QuickSortingHaore();
 		qs.sort(nums);
 		System.out.println("Final Result:" + Arrays.toString(nums));
 	}

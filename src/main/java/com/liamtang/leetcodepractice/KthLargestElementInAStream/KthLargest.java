@@ -34,6 +34,18 @@ class KthLargest {
     	
     	return minHeap.peek();
     }
+    
+    
+    public static void main(String args[]) {
+    	int[] arr = new int[] {4,5,8,2};
+    	KthLargest test = new KthLargest(3, arr);
+    	
+    	for (int i : test.minHeap) {
+    		System.out.println(i);
+    	}
+    	
+    	
+    }
 }
 
 /**
