@@ -1,4 +1,4 @@
-package com.liamtang.otherpractice.binarytree;
+package com.liamtang.otherpractice.tree.bst;
 
 public class Tester {
 	
