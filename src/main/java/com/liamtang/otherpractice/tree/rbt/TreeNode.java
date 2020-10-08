@@ -6,8 +6,34 @@ public class TreeNode {
 	private TreeNode rightchild;
 	private TreeNode parent;
 	private String element;
-	private int key;
-	private short color; // 0: Red, 1: Black; using type:bool is ok
+	private Integer key;
+	private NodeColor color;
+	
+	public static TreeNode generateNeel() {
+		TreeNode neel = new TreeNode(NodeColor.BLACK);
+		return neel;
+	}
+	
+	private TreeNode(NodeColor color) {
+		this.color = color;
+	}
+	
+	public TreeNode(String element, int key, NodeColor color) {
+		super();
+		this.element = element;
+		this.key = key;
+		this.color = color;
+	}
+	
+	public TreeNode(String element, int key, NodeColor color, TreeNode neel) {
+		this(element, key, color);
+		setNeel(neel);
+	}
+	
+	public void setNeel(TreeNode neel) {
+		if (leftchild == null) leftchild = neel;
+		if (rightchild == null) rightchild = neel;
+	}
 
 	public TreeNode getLeftchild() {
 		return leftchild;
@@ -15,7 +41,6 @@ public class TreeNode {
 
 	public void setLeftchild(TreeNode leftchild) {
 		this.leftchild = leftchild;
-		if (leftchild != null) leftchild.parent = this;
 	}
 
 	public TreeNode getRightchild() {
@@ -24,7 +49,6 @@ public class TreeNode {
 
 	public void setRightchild(TreeNode rightchild) {
 		this.rightchild = rightchild;
-		if (rightchild != null) rightchild.parent = this;
 	}
 
 	public TreeNode getParent() {
@@ -51,12 +75,16 @@ public class TreeNode {
 		this.key = key;
 	}
 
-	public short getColor() {
+	public NodeColor getColor() {
 		return color;
 	}
 
-	public void setColor(short color) {
+	public void setColor(NodeColor color) {
 		this.color = color;
+	}
+	
+	public enum NodeColor {
+	    RED, BLACK;
 	}
 
 }
