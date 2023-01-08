@@ -35,7 +35,7 @@ public class Solution149 {
         return result;
     }
 
-    public static void main(String Args[]) {
+    public static void main(String[] Args) {
         int[][] points = { { 2, 7 }, { 4, 5 }, { 3, 6}, { 7, 4} };
         //System.out.println(points.length);
         Solution149 solution = new Solution149();
