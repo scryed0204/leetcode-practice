@@ -1,4 +1,4 @@
-package com.liamtang.leetcodepractice.maximumSubarray.maxPointsOnTheLine;
+package com.liamtang.leetcodepractice.maxPointsOnTheLine;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ public class Solution149 {
         int result = 2;
 
         for(int i = 0; i < n; i++) {
-            Map<Double, Integer> cntMap = new HashMap<Double, Integer>();
+            Map<Double, Integer> cntMap = new HashMap<>();
             for (int j = 0; j < n; j++) {
                 if (j != i) {
                     double slope = Math.atan2(points[j][1] - points[i][1], points[j][0] - points[i][0]);
@@ -35,7 +35,7 @@ public class Solution149 {
         return result;
     }
 
-    public static void main(String args[]) {
+    public static void main(String Args[]) {
         int[][] points = { { 2, 7 }, { 4, 5 }, { 3, 6}, { 7, 4} };
         //System.out.println(points.length);
         Solution149 solution = new Solution149();
