@@ -82,4 +82,8 @@ public class AddTwoNumberSolution {
 		return result;
 	}
 
+	public static void main(String args[]) {
+
+	}
+
 }

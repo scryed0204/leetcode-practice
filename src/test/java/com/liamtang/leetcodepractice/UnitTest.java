@@ -1,8 +1,7 @@
 package com.liamtang.leetcodepractice;
 
-import org.junit.Test;
-
 import junit.framework.Assert;
+import org.testng.annotations.Test;
 
 public class UnitTest {
 	

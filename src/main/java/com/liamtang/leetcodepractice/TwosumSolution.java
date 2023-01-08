@@ -1,6 +1,7 @@
 package com.liamtang.leetcodepractice;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 public class TwosumSolution {
@@ -40,6 +41,22 @@ public class TwosumSolution {
 		// // End of Solution 2
 
 		throw new IllegalArgumentException("No solution");
+	}
+
+	public static void main(String args[]) {
+		String target = "1234";
+		String subStr = target;
+
+		while (target.length() > 0) {
+			System.out.println(target.indexOf("123"));
+			System.out.println(target);
+			target = target.substring(0, target.length() - 1);
+		}
+
+		HashSet<String> container = new HashSet();
+		
+
+
 	}
 
 }

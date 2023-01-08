@@ -1,10 +1,10 @@
 package com.liamtang.leetcodepractice;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.HashMap;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
+
+import static org.testng.AssertJUnit.assertEquals;
 
 
 public class ZigZagConversionTest {
